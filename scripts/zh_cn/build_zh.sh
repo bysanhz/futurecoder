@@ -15,6 +15,10 @@
 #   keys are inserted as clearly marked English fallbacks and written to
 #   `translations/zh_missing_report.txt` for later translation.
 #
+#   All configured programming terms are then normalized to the mandatory
+#   `中文术语（English term）` form throughout translated prose. The normalization
+#   is idempotent and preserves code spans, code blocks, and special placeholders.
+#
 # Prerequisites:
 #   - Python 3.12.1
 #   - Poetry with project dependencies installed (`poetry install`)
@@ -28,6 +32,7 @@ PO_FILE="$ROOT_DIR/translations/locales/zh/LC_MESSAGES/futurecoder.po"
 MO_FILE="$ROOT_DIR/translations/locales/zh/LC_MESSAGES/futurecoder.mo"
 CODES_FILE="$ROOT_DIR/translations/codes.json"
 MISSING_REPORT="$ROOT_DIR/translations/zh_missing_report.txt"
+BILINGUAL_REPORT="$ROOT_DIR/translations/zh_bilingual_terms_report.txt"
 
 cd "$ROOT_DIR"
 
@@ -41,7 +46,7 @@ if [[ ! -f "$PO_FILE" ]]; then
   exit 1
 fi
 
-echo "[1/5] Generating upstream translation metadata and current source catalog..."
+echo "[1/6] Generating upstream translation metadata and current source catalog..."
 poetry run python -m translations.generate_po_file
 
 if [[ ! -f "$CODES_FILE" ]]; then
@@ -54,14 +59,22 @@ if [[ ! -s "$ENGLISH_PO" ]]; then
   exit 1
 fi
 
-echo "[2/5] Synchronizing the Chinese catalog with the current source catalog..."
+echo "[2/6] Synchronizing the Chinese catalog with the current source catalog..."
 poetry run python scripts/zh_cn/sync_zh_catalog.py \
   "$ENGLISH_PO" \
   "$PO_FILE" \
   --fill-missing-with-source \
   --report "$MISSING_REPORT"
 
-echo "[3/5] Checking Chinese translations and compiling futurecoder.mo..."
+echo "[3/6] Applying mandatory bilingual programming terminology..."
+poetry run python scripts/zh_cn/apply_bilingual_terms.py \
+  "$PO_FILE" \
+  --report "$BILINGUAL_REPORT"
+
+# Verify that a second pass would make no further terminology changes.
+poetry run python scripts/zh_cn/apply_bilingual_terms.py "$PO_FILE" --check
+
+echo "[4/6] Checking Chinese translations and compiling futurecoder.mo..."
 poetry run python scripts/zh_cn/check_po_placeholders.py "$PO_FILE" --compile
 
 if [[ ! -f "$MO_FILE" ]]; then
@@ -69,17 +82,22 @@ if [[ ! -f "$MO_FILE" ]]; then
   exit 1
 fi
 
-echo "[4/5] Generating Chinese frontend course data..."
+echo "[5/6] Generating Chinese frontend course data..."
 FIX_CORE_IMPORTS=1 \
 FUTURECODER_LANGUAGE=zh \
 poetry run python -m scripts.generate_static_files
 
-echo "[5/5] Chinese build completed."
+echo "[6/6] Chinese build completed."
 echo
 if [[ -s "$MISSING_REPORT" ]]; then
   echo "Translation sync report:"
   echo "  $MISSING_REPORT"
   echo "Entries marked AUTO-FALLBACK are temporarily displayed in English."
+  echo
+fi
+if [[ -s "$BILINGUAL_REPORT" ]]; then
+  echo "Bilingual terminology report:"
+  echo "  $BILINGUAL_REPORT"
   echo
 fi
 echo "Next commands:"
