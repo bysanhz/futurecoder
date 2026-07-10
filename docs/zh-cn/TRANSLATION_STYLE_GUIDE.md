@@ -10,6 +10,7 @@
 - 不要机械直译英文。
 - 面向初学者时，优先解释“为什么”和“下一步该做什么”。
 - 遇到错误提示时，语气要具体、可操作，避免责备。
+- 专业术语采用“中文术语（英文原词）”的首次出现形式，帮助学习者对应英文资料。
 
 ## 代码相关内容
 
@@ -77,20 +78,80 @@ Python 缩进
 
 如果 `msgid` 和 `msgstr` 中特殊占位符不一致，`core/translation.py` 会触发检查错误。
 
-## 专有名词处理
+## 专有名词与双语术语
 
-建议采用“英文术语 + 中文解释”的第一次出现形式：
+### 基本格式
+
+页面标题、章节标题或正文首次定义一个编程概念时，采用：
 
 ```text
-variable（变量）
-function（函数）
-loop（循环）
-list（列表）
-dictionary（字典）
-traceback（错误追踪信息）
+中文术语（English term）
 ```
 
-后续可直接使用中文或英文，视上下文自然程度决定。
+例如：
+
+```text
+变量（variable）
+函数（function）
+循环（loop）
+列表（list）
+字典（dictionary）
+字符串（string）
+表达式（expression）
+语句（statement）
+错误追踪信息（traceback）
+```
+
+中文放在前面，方便中文初学者阅读；英文原词放在全角括号中，方便学习者查阅 Python 官方文档、英文教程和报错信息。
+
+### 使用频率
+
+- 同一页面或同一小节第一次出现时保留中英文。
+- 后续重复出现时通常只写中文，避免句子过长。
+- 页面标题本身已经给出中英文时，紧接着的正文不必机械重复英文。
+- 当术语容易与日常含义混淆时，可以再次保留英文。
+
+推荐：
+
+```text
+这些值称为变量（variable）。变量可以在程序运行过程中保存和引用数据。
+```
+
+不推荐：
+
+```text
+这些值称为变量。变量可以在程序运行过程中保存和引用数据。
+```
+
+也不推荐每次都重复：
+
+```text
+这些值称为变量（variable）。变量（variable）可以在程序运行过程中保存和引用数据。
+```
+
+### Python 代码名称
+
+Python 关键字、内置函数、类型名、变量名、函数名和类名保持英文代码形式，不作为普通术语翻译：
+
+```text
+使用 `print()` 函数输出内容。
+`word` 是变量名。
+`list` 是 Python 的内置类型。
+```
+
+概念名称可以中英并列，实际代码名称必须保持原样：
+
+```text
+列表（list）是一种按顺序保存多个值的数据结构。
+使用 `list()` 可以创建列表。
+```
+
+### 大小写与标点
+
+- 英文术语保留标准大小写。
+- 中文与括号之间不加空格：`变量（variable）`。
+- 使用中文全角括号 `（ ）`，不使用半角括号 `( )`。
+- 行内代码仍使用反引号，例如 `print()`、`word`、`list`。
 
 ## 错误提示翻译原则
 
@@ -126,26 +187,26 @@ hint 应该逐步给线索，而不是直接暴露答案。
 
 ## 术语统一表
 
-| English | 中文建议 |
-|---|---|
-| variable | 变量 |
-| string | 字符串 |
-| integer | 整数 |
-| float | 浮点数 |
-| list | 列表 |
-| dictionary | 字典 |
-| loop | 循环 |
-| function | 函数 |
-| argument | 实参 |
-| parameter | 形参 / 参数 |
-| return value | 返回值 |
-| traceback | 错误追踪信息 |
-| shell | 交互式 shell |
-| editor | 代码编辑器 |
-| expression | 表达式 |
-| statement | 语句 |
-| indentation | 缩进 |
-| boolean | 布尔值 |
+| English | 中文建议 | 首次出现形式 |
+|---|---|---|
+| variable | 变量 | 变量（variable） |
+| string | 字符串 | 字符串（string） |
+| integer | 整数 | 整数（integer） |
+| float | 浮点数 | 浮点数（float） |
+| list | 列表 | 列表（list） |
+| dictionary | 字典 | 字典（dictionary） |
+| loop | 循环 | 循环（loop） |
+| function | 函数 | 函数（function） |
+| argument | 实参 | 实参（argument） |
+| parameter | 形参 / 参数 | 形参（parameter） |
+| return value | 返回值 | 返回值（return value） |
+| traceback | 错误追踪信息 | 错误追踪信息（traceback） |
+| shell | 交互式 Shell | 交互式 Shell（shell） |
+| editor | 代码编辑器 | 代码编辑器（editor） |
+| expression | 表达式 | 表达式（expression） |
+| statement | 语句 | 语句（statement） |
+| indentation | 缩进 | 缩进（indentation） |
+| boolean | 布尔值 | 布尔值（Boolean） |
 
 ## 提交要求
 
