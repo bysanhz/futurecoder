@@ -144,5 +144,7 @@ homepage/static/css/**/*.css
 .firebase
 
 translations/codes.json
+translations/zh_missing_report.txt
+translations/zh_bilingual_terms_report.txt
 .DS_Store
 translations/chunks/
