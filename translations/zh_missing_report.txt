@@ -1,0 +1,746 @@
+futurecoder Simplified Chinese missing-entry report
+Missing entries: 108
+
+[1] code_bits."OK, here's your cart so far:"
+English source:
+"OK, here's your cart so far:"
+
+--------------------------------------------------------------------------------
+
+[2] code_bits.'How many?'
+English source:
+'How many?'
+
+--------------------------------------------------------------------------------
+
+[3] code_bits.'What would you like to buy?'
+English source:
+'What would you like to buy?'
+
+--------------------------------------------------------------------------------
+
+[4] code_bits.'avocado'
+English source:
+'avocado'
+
+--------------------------------------------------------------------------------
+
+[5] code_bits.'avocat'
+English source:
+'avocat'
+
+--------------------------------------------------------------------------------
+
+[6] code_bits.'lawyer'
+English source:
+'lawyer'
+
+--------------------------------------------------------------------------------
+
+[7] code_bits.___
+English source:
+___
+
+--------------------------------------------------------------------------------
+
+[8] code_bits.buy_quantity
+English source:
+buy_quantity
+
+--------------------------------------------------------------------------------
+
+[9] code_bits.english
+English source:
+english
+
+--------------------------------------------------------------------------------
+
+[10] code_bits.english_to_french
+English source:
+english_to_french
+
+--------------------------------------------------------------------------------
+
+[11] code_bits.english_to_german
+English source:
+english_to_german
+
+--------------------------------------------------------------------------------
+
+[12] code_bits.french_to_german
+English source:
+french_to_german
+
+--------------------------------------------------------------------------------
+
+[13] code_bits.make_english_to_german
+English source:
+make_english_to_german
+
+--------------------------------------------------------------------------------
+
+[14] code_bits.new_dict
+English source:
+new_dict
+
+--------------------------------------------------------------------------------
+
+[15] code_bits.reverse
+English source:
+reverse
+
+--------------------------------------------------------------------------------
+
+[16] code_bits.swap_keys_values
+English source:
+swap_keys_values
+
+--------------------------------------------------------------------------------
+
+[17] code_bits.total_cost_per_item
+English source:
+total_cost_per_item
+
+--------------------------------------------------------------------------------
+
+[18] code_bits.totals
+English source:
+totals
+
+--------------------------------------------------------------------------------
+
+[19] pages.CreatingKeyValuePairs.steps.avocado_or_lawyer.text
+English source:
+Magnificent!
+
+Jokes aside, it's important to remember how exactly this can go wrong. Just like multiple items in the store
+can have the same price, multiple words in English can have the same translation in French. If the original dictionary
+has duplicate *values*, what happens when you try to swap keys and values? Since dictionary keys must be unique,
+some data will be lost.
+
+For example, 'avocat' in French can mean either 'avocado' and 'lawyer'. So it's easy to translate
+'avocado' from English to French, but it's not so clear how to translate 'avocat' back to English.
+Try to guess what the following code will print:
+
+    __copyable__
+__code0__
+
+--------------------------------------------------------------------------------
+
+[20] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.0.text
+English source:
+The body of `buy_quantity` only needs one simple line of code.
+
+--------------------------------------------------------------------------------
+
+[21] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.1.text
+English source:
+It's similar to some of the lines in the previous step, but with variables instead of hardcoded values.
+
+--------------------------------------------------------------------------------
+
+[22] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.10.text
+English source:
+Replace `'dog'` with `item`.
+
+--------------------------------------------------------------------------------
+
+[23] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.11.text
+English source:
+Replace `500` with `quantity`.
+
+--------------------------------------------------------------------------------
+
+[24] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.12.text
+English source:
+Don't use `'item'` or `'quantity'`, use the variables `item` and `quantity` directly.
+
+--------------------------------------------------------------------------------
+
+[25] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.2.text
+English source:
+Be careful with quotes!
+
+--------------------------------------------------------------------------------
+
+[26] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.3.text
+English source:
+`'dog'` is an example of a value for `item`.
+
+--------------------------------------------------------------------------------
+
+[27] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.4.text
+English source:
+What would be an example of a value for `quantity`?
+
+--------------------------------------------------------------------------------
+
+[28] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.5.text
+English source:
+For `'dog'`, it was `500` above.
+
+--------------------------------------------------------------------------------
+
+[29] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.6.text
+English source:
+You're making a generic version of `quantities['dog'] = 500`.
+
+--------------------------------------------------------------------------------
+
+[30] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.7.text
+English source:
+The `quantities` part is fine as is.
+
+--------------------------------------------------------------------------------
+
+[31] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.8.text
+English source:
+Also keep the `[]` and `=`.
+
+--------------------------------------------------------------------------------
+
+[32] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.hints.9.text
+English source:
+Remember that `item` is a variable, `'item'` is a string literal.
+
+--------------------------------------------------------------------------------
+
+[33] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.requirements
+English source:
+Your function should modify the `quantities` argument. It doesn't need to `return` or `print` anything.
+
+--------------------------------------------------------------------------------
+
+[34] pages.CreatingKeyValuePairs.steps.buy_quantity_exercise.text
+English source:
+That's exactly what we need. Whether the customer says they want 500 or 5 million dogs,
+we can just put that information directly into our dictionary. So as an exercise, let's make a generic version of that.
+Write a function `buy_quantity(quantities, item, quantity)` which adds a new key-value pair to the `quantities` dictionary.
+Here's some starting code:
+
+    __copyable__
+__code0__
+
+Note that `buy_quantity` should *modify* the dictionary that's passed in, and doesn't need to `return` or `print` anything.
+You can assume that `item` isn't already in `quantities`.
+
+--------------------------------------------------------------------------------
+
+[35] pages.CreatingKeyValuePairs.steps.buy_quantity_input_test.text
+English source:
+Well done! Try it out interactively:
+
+    __copyable__
+__code0__
+
+Note the `int(input())` part, because `input()` returns a string, and `quantity` should be an integer
+(a whole number). This'll break if you enter something that isn't a number, but that's OK for now.
+
+--------------------------------------------------------------------------------
+
+[36] pages.CreatingKeyValuePairs.steps.dict_assignment_valid.output_prediction_choices.0
+English source:
+{'dog': 500, 'box': 2}
+
+--------------------------------------------------------------------------------
+
+[37] pages.CreatingKeyValuePairs.steps.dict_assignment_valid.output_prediction_choices.1
+English source:
+{'dog': 2, 'box': 500}
+
+--------------------------------------------------------------------------------
+
+[38] pages.CreatingKeyValuePairs.steps.dict_assignment_valid.output_prediction_choices.2
+English source:
+{2: 'dog', 500: 'box'}
+
+--------------------------------------------------------------------------------
+
+[39] pages.CreatingKeyValuePairs.steps.dict_assignment_valid.output_prediction_choices.3
+English source:
+{500: 'dog', 2: 'box'}
+
+--------------------------------------------------------------------------------
+
+[40] pages.CreatingKeyValuePairs.steps.dict_assignment_valid.text
+English source:
+Sorry, that's not allowed. For lists, subscript assignment only works for existing valid indices.
+But that's not true for dictionaries! Try this:
+
+__code0__
+
+Note that `{}` means an empty dictionary, i.e. a dictionary with no key-value pairs.
+This is similar to `[]` meaning an empty list or `""` meaning an empty string.
+
+--------------------------------------------------------------------------------
+
+[41] pages.CreatingKeyValuePairs.steps.final_text.text
+English source:
+The result depends on the order of the keys in the original dictionary!
+If you're not sure why, try running the code with `snoop` or another debugger.
+
+But there are many situations where you can be sure that the values in a dictionary *are* unique and that this
+'inversion' makes sense. For example, we saw this code [earlier in the chapter](#UsingDictionaries):
+
+    __copyable__
+    __no_auto_translate__
+    def substitute(string, d):
+        result = ""
+        for letter in string:
+            result += d[letter]
+        return result
+
+    plaintext = 'helloworld'
+    encrypted = 'qpeefifmez'
+    letters = {'h': 'q', 'e': 'p', 'l': 'e', 'o': 'f', 'w': 'i', 'r': 'm', 'd': 'z'}
+    reverse = {'q': 'h', 'p': 'e', 'e': 'l', 'f': 'o', 'i': 'w', 'm': 'r', 'z': 'd'}
+    assert_equal(substitute(plaintext, letters), encrypted)
+    assert_equal(substitute(encrypted, reverse), plaintext)
+
+Now we can construct the `reverse` dictionary automatically:
+
+__code0__
+
+For this to work, we just have to make sure that all the values in `letters` are unique.
+Otherwise it would be impossible to decrypt messages properly. If both `'h'` and `'j'` got replaced with `'q'`
+during encryption, there would be no way to know whether `'qpeef'` means `'hello'` or `'jello'`!
+
+Congratulations! You've reached the end of the course so far. More is on the way!
+
+--------------------------------------------------------------------------------
+
+[42] pages.CreatingKeyValuePairs.steps.list_append_reminder.output_prediction_choices.1
+English source:
+['dog']
+
+--------------------------------------------------------------------------------
+
+[43] pages.CreatingKeyValuePairs.steps.list_append_reminder.output_prediction_choices.2
+English source:
+['box']
+
+--------------------------------------------------------------------------------
+
+[44] pages.CreatingKeyValuePairs.steps.list_append_reminder.output_prediction_choices.3
+English source:
+['dog', 'box']
+
+--------------------------------------------------------------------------------
+
+[45] pages.CreatingKeyValuePairs.steps.list_append_reminder.output_prediction_choices.4
+English source:
+['box', 'dog']
+
+--------------------------------------------------------------------------------
+
+[46] pages.CreatingKeyValuePairs.steps.list_append_reminder.output_prediction_choices.5
+English source:
+['dog', 'dog']
+
+--------------------------------------------------------------------------------
+
+[47] pages.CreatingKeyValuePairs.steps.list_append_reminder.output_prediction_choices.6
+English source:
+['box', 'box']
+
+--------------------------------------------------------------------------------
+
+[48] pages.CreatingKeyValuePairs.steps.list_append_reminder.text
+English source:
+Now we'll learn how to add key-value pairs to a dictionary,
+e.g. so that we can keep track of what the customer is buying.
+Before looking at dictionaries, let's remind ourselves how to add items to a list. Run this program:
+
+    __copyable__
+__code0__
+
+--------------------------------------------------------------------------------
+
+[49] pages.CreatingKeyValuePairs.steps.list_assign_invalid.output_prediction_choices.1
+English source:
+['dog']
+
+--------------------------------------------------------------------------------
+
+[50] pages.CreatingKeyValuePairs.steps.list_assign_invalid.output_prediction_choices.2
+English source:
+['box']
+
+--------------------------------------------------------------------------------
+
+[51] pages.CreatingKeyValuePairs.steps.list_assign_invalid.output_prediction_choices.3
+English source:
+['dog', 'box']
+
+--------------------------------------------------------------------------------
+
+[52] pages.CreatingKeyValuePairs.steps.list_assign_invalid.output_prediction_choices.4
+English source:
+['box', 'dog']
+
+--------------------------------------------------------------------------------
+
+[53] pages.CreatingKeyValuePairs.steps.list_assign_invalid.output_prediction_choices.5
+English source:
+['dog', 'dog']
+
+--------------------------------------------------------------------------------
+
+[54] pages.CreatingKeyValuePairs.steps.list_assign_invalid.output_prediction_choices.6
+English source:
+['box', 'box']
+
+--------------------------------------------------------------------------------
+
+[55] pages.CreatingKeyValuePairs.steps.list_assign_invalid.text
+English source:
+What if we used that idea to create our list in the first place?
+We know we want a list where `cart[0]` is `'dog'` and `cart[1]` is `'box'`, so let's just say that:
+
+    __copyable__
+__code0__
+
+--------------------------------------------------------------------------------
+
+[56] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.0
+English source:
+['box']
+
+--------------------------------------------------------------------------------
+
+[57] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.1
+English source:
+['dog', 'cat']
+
+--------------------------------------------------------------------------------
+
+[58] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.2
+English source:
+['box', 'dog']
+
+--------------------------------------------------------------------------------
+
+[59] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.3
+English source:
+['box', 'cat']
+
+--------------------------------------------------------------------------------
+
+[60] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.4
+English source:
+['dog', 'box']
+
+--------------------------------------------------------------------------------
+
+[61] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.5
+English source:
+['cat', 'box']
+
+--------------------------------------------------------------------------------
+
+[62] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.6
+English source:
+['box', 'dog', 'cat']
+
+--------------------------------------------------------------------------------
+
+[63] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.7
+English source:
+['dog', 'box', 'cat']
+
+--------------------------------------------------------------------------------
+
+[64] pages.CreatingKeyValuePairs.steps.list_assign_reminder.output_prediction_choices.8
+English source:
+['dog', 'cat', 'box']
+
+--------------------------------------------------------------------------------
+
+[65] pages.CreatingKeyValuePairs.steps.list_assign_reminder.text
+English source:
+Pretty simple. We can also change the value at an index, replacing it with a different one:
+
+    __copyable__
+__code0__
+
+--------------------------------------------------------------------------------
+
+[66] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.0.text
+English source:
+You need to create a new dictionary and fill it with key-value pairs depending on the two input dictionaries.
+
+--------------------------------------------------------------------------------
+
+[67] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.1.text
+English source:
+You've seen code that does this before.
+
+--------------------------------------------------------------------------------
+
+[68] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.10.text
+English source:
+The values should be German words, so they should come from the second dictionary.
+
+--------------------------------------------------------------------------------
+
+[69] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.11.text
+English source:
+Specifically the keys of your dictionary should be the keys of the first dictionary.
+
+--------------------------------------------------------------------------------
+
+[70] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.12.text
+English source:
+And the values of your dictionary should be the values of the second dictionary.
+
+--------------------------------------------------------------------------------
+
+[71] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.13.text
+English source:
+What about the values of the first dictionary and the keys of the second dictionary? They're important.
+
+--------------------------------------------------------------------------------
+
+[72] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.14.text
+English source:
+Look at the French words `'pomme'` and `'boite'` in the example test.
+
+--------------------------------------------------------------------------------
+
+[73] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.15.text
+English source:
+The values of the first input dictionary are the keys of the second input dictionary.
+
+--------------------------------------------------------------------------------
+
+[74] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.2.text
+English source:
+Specifically the previous step. The overall structure you want is similar to `total_cost_per_item`.
+
+--------------------------------------------------------------------------------
+
+[75] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.3.text
+English source:
+Start by creating a new empty dictionary.
+
+--------------------------------------------------------------------------------
+
+[76] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.4.text
+English source:
+Return the dictionary at the end. Then fill in the code in between.
+
+--------------------------------------------------------------------------------
+
+[77] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.5.text
+English source:
+You need a `for` loop.
+
+--------------------------------------------------------------------------------
+
+[78] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.6.text
+English source:
+The line `totals[item] = quantities[item] * prices[item]` from the previous step is close to what you need.
+
+--------------------------------------------------------------------------------
+
+[79] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.7.text
+English source:
+You don't need to multiply anything with `*`, the names are different, and there's another difference in logic.
+
+--------------------------------------------------------------------------------
+
+[80] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.8.text
+English source:
+Think about what the keys and values of the new dictionary should be.
+
+--------------------------------------------------------------------------------
+
+[81] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.hints.9.text
+English source:
+The keys should be English words, so they should come from the first dictionary.
+
+--------------------------------------------------------------------------------
+
+[82] pages.CreatingKeyValuePairs.steps.make_english_to_german_exercise.text
+English source:
+Perfect! This is like having a nice receipt full of useful information.
+
+Let's come back to the example of using dictionaries for translation. Suppose we have one dictionary
+for translating from English to French, and another for translating from French to German.
+Let's use that to create a dictionary that translates from English to German:
+
+    __copyable__
+__code0__
+
+--------------------------------------------------------------------------------
+
+[83] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.hints.0.text
+English source:
+Don't modify the input dictionary `d`.
+
+--------------------------------------------------------------------------------
+
+[84] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.hints.1.text
+English source:
+You need to create a new dictionary and fill it with key-value pairs depending on the input dictionary.
+
+--------------------------------------------------------------------------------
+
+[85] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.hints.2.text
+English source:
+You've done this in the previous exercise. The overall structure you want is similar to `make_english_to_german`.
+
+--------------------------------------------------------------------------------
+
+[86] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.hints.3.text
+English source:
+It's actually even simpler, it just might feel weird.
+
+--------------------------------------------------------------------------------
+
+[87] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.hints.4.text
+English source:
+Start by creating a new empty dictionary. Return the dictionary at the end. Put a `for` loop in between.
+
+--------------------------------------------------------------------------------
+
+[88] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.hints.5.text
+English source:
+Think about what the keys and values of the new dictionary should be.
+
+--------------------------------------------------------------------------------
+
+[89] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.hints.6.text
+English source:
+There's only one possible thing for you to loop over.
+
+--------------------------------------------------------------------------------
+
+[90] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.hints.7.text
+English source:
+Use each key in the input dictionary `d` to get the corresponding value.
+
+--------------------------------------------------------------------------------
+
+[91] pages.CreatingKeyValuePairs.steps.swap_keys_values_exercise.text
+English source:
+Great job!
+
+Of course, language isn't so simple, and there are many ways that using a dictionary like this could go wrong.
+So...let's do something even worse! Let's use an English-to-French dictionary to create a French-to-English dictionary.
+Write a function which takes a dictionary returns a new dictionary where the keys and values are swapped,
+so `a: b` becomes `b: a`.
+
+    __copyable__
+__code0__
+
+--------------------------------------------------------------------------------
+
+[92] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.0.text
+English source:
+You only need to fill in the `___` part.
+
+--------------------------------------------------------------------------------
+
+[93] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.1.text
+English source:
+But if you want, you could also just put a variable name there, and then add a new line below it.
+
+--------------------------------------------------------------------------------
+
+[94] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.10.text
+English source:
+The dictionary is the thing that this function creates, builds, and returns.
+
+--------------------------------------------------------------------------------
+
+[95] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.11.text
+English source:
+i.e. `totals`.
+
+--------------------------------------------------------------------------------
+
+[96] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.12.text
+English source:
+Note how `'apple'` is a key in all three dictionaries in that test.
+
+--------------------------------------------------------------------------------
+
+[97] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.13.text
+English source:
+i.e. the dictionaries `quantities`, `prices`, and `totals`.
+
+--------------------------------------------------------------------------------
+
+[98] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.2.text
+English source:
+Look at the tests with `assert_equal`. In the first example, the expected output is `{'apple': 6}`. Why?
+
+--------------------------------------------------------------------------------
+
+[99] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.3.text
+English source:
+Because the customer bought 2 apples, and each apple costs 3, so the total cost is `2 * 3 = 6`.
+
+--------------------------------------------------------------------------------
+
+[100] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.4.text
+English source:
+The `'box': 5` part is ignored because the customer didn't buy any boxes. It just means that the price of a box is 5.
+
+--------------------------------------------------------------------------------
+
+[101] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.5.text
+English source:
+You need to add a new key-value pair to a dictionary.
+
+--------------------------------------------------------------------------------
+
+[102] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.6.text
+English source:
+Identify the dictionary, the key, and the value.
+
+--------------------------------------------------------------------------------
+
+[103] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.7.text
+English source:
+They are all present in the given code already.
+
+--------------------------------------------------------------------------------
+
+[104] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.8.text
+English source:
+The value is the total cost for that item, which is the quantity multiplied by the price.
+
+--------------------------------------------------------------------------------
+
+[105] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.hints.9.text
+English source:
+i.e. `quantities[item] * prices[item]`.
+
+--------------------------------------------------------------------------------
+
+[106] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.requirements
+English source:
+Run the program above, but replace the `___` with the correct code.
+
+--------------------------------------------------------------------------------
+
+[107] pages.CreatingKeyValuePairs.steps.total_cost_per_item_exercise.text
+English source:
+Thanks for shopping with us! Let's see how much you just spent on each item.
+
+Earlier we defined a function `total_cost(quantities, prices)` which returned a single number
+with a grand total of all the items in the cart. Now let's make a function `total_cost_per_item(quantities, prices)`
+which returns a new dictionary with the total cost for each item:
+
+    __copyable__
+__code0__
+
+--------------------------------------------------------------------------------
+
+[108] pages.CreatingKeyValuePairs.title
+English source:
+Creating Key-Value Pairs
+
+--------------------------------------------------------------------------------
