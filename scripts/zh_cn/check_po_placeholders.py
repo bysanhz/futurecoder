@@ -20,7 +20,8 @@ Details:
     - suspicious special tokens such as misspelled `__program__` markers are
       reported;
     - Markdown inline-code backticks are balanced;
-    - obvious stray special-token-like placeholders are reported.
+    - intentional fill-in-the-blank underscores such as `____________` are
+      allowed and are not treated as futurecoder placeholders.
 
     The full runtime placeholder validation is still done by futurecoder itself
     when `core.translation.get(...)` receives both the default source text and
@@ -36,7 +37,10 @@ from pathlib import Path
 
 import polib
 
-SPECIAL_RE = re.compile(r"__\w+__")
+# Match futurecoder-style special placeholders only when the token starts with
+# a letter after the leading double underscore. This avoids false positives for
+# exercise blanks such as `____________`.
+SPECIAL_RE = re.compile(r"__[A-Za-z][A-Za-z0-9_]*__")
 CODE_RE = re.compile(r"__code\d+__")
 
 ALLOWED_SPECIAL_EXACT = {
@@ -46,6 +50,8 @@ ALLOWED_SPECIAL_EXACT = {
     "__no_auto_translate__",
 }
 
+# A long underscore run can be a deliberate fill-in-the-blank marker. Keep this
+# as a warning-only heuristic and ignore pure blank strings.
 SUSPICIOUS_UNDERSCORE_RE = re.compile(r"_{3,}")
 
 
@@ -81,6 +87,19 @@ def is_allowed_special(token: str) -> bool:
     """
 
     return token in ALLOWED_SPECIAL_EXACT or bool(CODE_RE.fullmatch(token))
+
+
+def is_blank_underscore_run(token: str) -> bool:
+    """Return whether an underscore run is only a pedagogical blank.
+
+    Args:
+        token: Underscore run matched by SUSPICIOUS_UNDERSCORE_RE.
+
+    Returns:
+        True when the token contains only underscores and should be ignored.
+    """
+
+    return bool(token) and set(token) == {"_"}
 
 
 def line_of_entry(entry: polib.POEntry) -> int:
@@ -126,10 +145,12 @@ def check_entry(entry: polib.POEntry) -> list[str]:
                 f"  msgstr: {text[:180]!r}"
             )
 
-    # Long underscore runs are common in intentionally untranslated output
-    # blocks, but they are suspicious if they do not match a known marker.
+    # Long underscore runs are often intentional fill-in-the-blank markers.
+    # Warn only if the context suggests something more complex than a pure blank.
     for match in SUSPICIOUS_UNDERSCORE_RE.finditer(text):
         token = match.group(0)
+        if is_blank_underscore_run(token):
+            continue
         start = max(0, match.start() - 30)
         end = min(len(text), match.end() + 30)
         context = text[start:end]
